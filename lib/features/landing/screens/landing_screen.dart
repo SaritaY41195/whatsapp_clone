@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/common/utils/colors.dart';
 
 class LandingScreen extends StatelessWidget {
   const LandingScreen({super.key});
@@ -21,7 +22,23 @@ class LandingScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: size.height / 9),
-            Image.asset('assets/bg.jpeg', height: 340, width: 340),
+            Image.asset(
+              'assets/bg.jpeg',
+              height: 340,
+              width: 340,
+              color: tabColor,
+            ),
+            SizedBox(height: size.height / 9),
+            const Padding(
+              padding: EdgeInsets.all(15.0),
+              child: Text(
+                'Read our Privacy and Policy. Tap "Agree and continue" to accept the term of services.',
+                style: TextStyle(color: greyColor),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            const SizedBox(height: 10),
+            
           ],
         ),
       ),
