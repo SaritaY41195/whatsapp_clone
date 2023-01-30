@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'WhatsApp UI',
       theme: ThemeData.dark().copyWith(
           //  scaffoldBackgroundColor: backgroundColor,
-          ),
+          ),onGenerateInitialRoutes: (settings) => ,
       home: const LandingScreen(),
     );
   }
