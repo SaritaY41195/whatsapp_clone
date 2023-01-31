@@ -1,6 +1,5 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/common/widgets/error.dart';
 import 'package:whatsapp_clone/features/landing/screens/login_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
@@ -8,6 +7,12 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case LoginScreen.routeName:
       return MaterialPageRoute(
         builder: (context) => const LoginScreen(),
+      );
+    default:
+      return MaterialPageRoute(
+        builder: (context) => const Scaffold(
+          body: ErrorScreen(error: 'This page does not exist'),
+        ),
       );
   }
 }
