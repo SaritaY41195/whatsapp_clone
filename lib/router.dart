@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/common/widgets/error.dart';
-import 'package:whatsapp_clone/features/landing/screens/login_screen.dart';
+import 'package:whatsapp_clone/screens/login_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
