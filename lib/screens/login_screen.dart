@@ -44,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
         backgroundColor: backgroundColor,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(18.0),
+        padding: const EdgeInsets.only(top: 15, right: 10, left: 10),
         child: Column(
           // ignore: prefer_const_literals_to_create_immutables
           children: [
