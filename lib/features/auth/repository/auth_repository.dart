@@ -31,8 +31,11 @@ class AuthRepository {
           throw Exception(e.message);
         },
         codeSent: ((String verificationId, int? resendToken) async {
-          Navigator.pushNamed(context, OTPScreen.routeName,
-              arguments: verificationId);
+          Navigator.pushNamed(
+            context,
+            OTPScreen.routeName,
+            arguments: verificationId,
+          );
         }),
         codeAutoRetrievalTimeout: (String verificationId) {},
       );
@@ -47,7 +50,6 @@ class AuthRepository {
     required String userOTP,
   }) async {
     try {
-      // ignore: unused_local_variable
       PhoneAuthCredential credential = PhoneAuthProvider.credential(
         verificationId: verificationId,
         smsCode: userOTP,
@@ -55,7 +57,10 @@ class AuthRepository {
       await auth.signInWithCredential(credential);
       // ignore: use_build_context_synchronously
       Navigator.pushNamedAndRemoveUntil(
-          context, UserInformationScreen.routeName, (route) => false);
+        context,
+        UserInformationScreen.routeName,
+        (route) => false,
+      );
     } on FirebaseAuthException catch (e) {
       showSnackBar(context: context, content: e.message!);
     }

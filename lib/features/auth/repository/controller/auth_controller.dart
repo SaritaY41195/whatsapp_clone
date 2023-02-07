@@ -21,6 +21,9 @@ class AuthController {
 
   void verifyOTP(BuildContext context, String verificationId, String userOTP) {
     authRepository.verifyOTP(
-        context: context, verificationId: verificationId, userOTP: userOTP);
+      context: context,
+      verificationId: verificationId,
+      userOTP: userOTP,
+    );
   }
 }

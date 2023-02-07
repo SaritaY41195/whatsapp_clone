@@ -7,8 +7,8 @@ import 'package:whatsapp_clone/common/widgets/custom_button.dart';
 import 'package:whatsapp_clone/features/auth/repository/controller/auth_controller.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
-  static const routeName = 'login-screen';
-  const LoginScreen({super.key});
+  static const routeName = '/login-screen';
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   ConsumerState<LoginScreen> createState() => _LoginScreenState();
@@ -25,13 +25,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   }
 
   void pickCountry() {
-    // showPhoneCode: false,
     showCountryPicker(
         context: context,
         // ignore: no_leading_underscores_for_local_identifiers
         onSelect: (Country _country) {
           setState(() {
-            // ignore: no_leading_underscores_for_local_identifiers, unused_local_variable
             country = _country;
           });
         });
@@ -42,15 +40,16 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     if (country != null && phoneNumber.isNotEmpty) {
       ref
           .read(authControllerProvider)
-          .signInWithPhone(context, '+${country!.phoneCode}phoneNumber');
+          .signInWithPhone(context, '+${country!.phoneCode}$phoneNumber');
     } else {
-      showSnackBar(context: context, content: 'Fill out of all fields');
+      showSnackBar(context: context, content: 'Fill out all the fields');
     }
   }
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Enter your phone number'),
@@ -59,26 +58,18 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(18),
-          child: ListView(
-            // ignore: prefer_const_literals_to_create_immutables
+          padding: const EdgeInsets.all(18.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Text(
-                'Whatsapp will need to verify your phone number',
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              // ignore: prefer_const_constructors
+              const Text('WhatsApp will need to verify your phone number.'),
+              const SizedBox(height: 10),
               TextButton(
-                onPressed: () => pickCountry(),
-                child: const Text('Pick country'),
+                onPressed: pickCountry,
+                child: const Text('Pick Country'),
               ),
-              const SizedBox(
-                height: 5,
-              ),
+              const SizedBox(height: 5),
               Row(
-                // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   if (country != null) Text('+${country!.phoneCode}'),
                   const SizedBox(width: 10),
@@ -95,8 +86,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               ),
               SizedBox(height: size.height * 0.6),
               SizedBox(
-                width: 10,
-                child: CustomButton(text: 'NEXT', onPressed: sendPhoneNumber),
+                width: 90,
+                child: CustomButton(
+                  onPressed: sendPhoneNumber,
+                  text: 'NEXT',
+                ),
               ),
             ],
           ),
