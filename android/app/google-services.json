@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "193448246985-ka4ul1at2jjlme4sfobh7khbuaqd4lmc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.whatsapp_clone",
+            "certificate_hash": "a12eba33fce403c80726b3ee8a583f7d3ad2bc50"
+          }
+        },
+        {
           "client_id": "193448246985-5ihcj496lvpv7cl4cppltsgavlm343mh.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +37,13 @@
             {
               "client_id": "193448246985-5ihcj496lvpv7cl4cppltsgavlm343mh.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "193448246985-p5vomhp875aqteffug31973vk142ms5u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.whatsappClone"
+              }
             }
           ]
         }
